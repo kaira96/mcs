@@ -1,0 +1,46 @@
+[
+    {
+        "model": "company_structure.Position",
+        "pk": 1,
+        "fields":
+        {
+            "name": "Главный специалист",
+            "department": 1,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.Position",
+        "pk": 2,
+        "fields":
+        {
+            "name": "Ведущий специалист",
+            "department": 1,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.Position",
+        "pk": 3,
+        "fields":
+        {
+            "name": "Главный специалист",
+            "department": 2,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.Position",
+        "pk": 4,
+        "fields":
+        {
+            "name": "Ведущий специалист",
+            "department": 2,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    }
+]

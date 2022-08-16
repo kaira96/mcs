@@ -1,0 +1,146 @@
+[
+    {
+        "model": "accounting_balance.AccountTransactionTemplate",
+        "pk": 1,
+        "fields":
+        {
+            "transaction_template": "PFTP",
+            "from_account": 1,
+            "to_account": 2,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "accounting_balance.AccountTransactionTemplate",
+        "pk": 2,
+        "fields":
+        {
+            "transaction_template": "AGOP",
+            "from_account": 3,
+            "to_account": 1,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "accounting_balance.AccountTransactionTemplate",
+        "pk": 3,
+        "fields":
+        {
+            "transaction_template": "RF",
+            "from_account": 4,
+            "to_account": 3,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "accounting_balance.AccountTransactionTemplate",
+        "pk": 4,
+        "fields":
+        {
+            "transaction_template": "AIAP",
+            "from_account": 5,
+            "to_account": 6,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "accounting_balance.AccountTransactionTemplate",
+        "pk": 5,
+        "fields":
+        {
+            "transaction_template": "AIED",
+            "from_account": 6,
+            "to_account": 7,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "accounting_balance.AccountTransactionTemplate",
+        "pk": 6,
+        "fields":
+        {
+            "transaction_template": "RFB",
+            "from_account": 1,
+            "to_account": 8,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "accounting_balance.AccountTransactionTemplate",
+        "pk": 7,
+        "fields":
+        {
+            "transaction_template": "RFA",
+            "from_account": 8,
+            "to_account": 4,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "accounting_balance.AccountTransactionTemplate",
+        "pk": 8,
+        "fields":
+        {
+            "transaction_template": "RBS",
+            "from_account": 8,
+            "to_account": 5,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "accounting_balance.AccountTransactionTemplate",
+        "pk": 9,
+        "fields":
+        {
+            "transaction_template": "AWST",
+            "from_account": 7,
+            "to_account": 9,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "accounting_balance.AccountTransactionTemplate",
+        "pk": 10,
+        "fields":
+        {
+            "transaction_template": "PST",
+            "from_account": 9,
+            "to_account": 2,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "accounting_balance.AccountTransactionTemplate",
+        "pk": 11,
+        "fields":
+        {
+            "transaction_template": "ARSPUFA",
+            "from_account": 11,
+            "to_account": 10,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "accounting_balance.AccountTransactionTemplate",
+        "pk": 12,
+        "fields":
+        {
+            "transaction_template": "ARSPUBS",
+            "from_account": 12,
+            "to_account": 10,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    }
+]

@@ -1,0 +1,134 @@
+[
+    {
+        "model": "accounting_balance.Account",
+        "pk": 1,
+        "fields":
+        {
+            "number": "11500",
+            "name": "1",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "accounting_balance.Account",
+        "pk": 2,
+        "fields":
+        {
+            "number": "10101",
+            "name": "2",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "accounting_balance.Account",
+        "pk": 3,
+        "fields":
+        {
+            "number": "11200",
+            "name": "3",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "accounting_balance.Account",
+        "pk": 4,
+        "fields":
+        {
+            "number": "10900",
+            "name": "4",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "accounting_balance.Account",
+        "pk": 5,
+        "fields":
+        {
+            "number": "11900",
+            "name": "5",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "accounting_balance.Account",
+        "pk": 6,
+        "fields":
+        {
+            "number": "21100",
+            "name": "6",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "accounting_balance.Account",
+        "pk": 7,
+        "fields":
+        {
+            "number": "61100",
+            "name": "7",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "accounting_balance.Account",
+        "pk": 8,
+        "fields":
+        {
+            "number": "21114",
+            "name": "8",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "accounting_balance.Account",
+        "pk": 9,
+        "fields":
+        {
+            "number": "21109",
+            "name": "9",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "accounting_balance.Account",
+        "pk": 10,
+        "fields":
+        {
+            "number": "11000",
+            "name": "10",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "accounting_balance.Account",
+        "pk": 11,
+        "fields":
+        {
+            "number": "80400.00001",
+            "name": "11",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "accounting_balance.Account",
+        "pk": 12,
+        "fields":
+        {
+            "number": "80400.00002",
+            "name": "12",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    }
+]

@@ -1,0 +1,135 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Авторизация" %}{% endblock title %}
+{% block head %}
+    <style>
+        html,body {
+            height: 100%;
+        }
+        
+        body.my-login-page {
+            background-color: #f7f9fb;
+            font-size: 14px;
+        }
+        
+        .my-login-page .brand {
+            width: 90px;
+            height: 90px;
+            overflow: hidden;
+            border-radius: 50%;
+            margin: 40px auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,.05);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .my-login-page .brand img {
+            width: 100%;
+        }
+        
+        .my-login-page .card-wrapper {
+            width: 400px;
+        }
+        
+        .my-login-page .card {
+            border-color: transparent;
+            box-shadow: 0 4px 8px rgba(0,0,0,.05);
+        }
+        
+        .my-login-page .card.fat {
+            padding: 10px;
+        }
+        
+        .my-login-page .card .card-title {
+            margin-bottom: 30px;
+        }
+        
+        .my-login-page .form-control {
+            border-width: 2.3px;
+        }
+        
+        .my-login-page .form-group label {
+            width: 100%;
+        }
+        
+        .my-login-page .btn.btn-block {
+            padding: 12px 10px;
+        }
+        
+        .my-login-page .footer {
+            margin: 40px 0;
+            color: #888;
+            text-align: center;
+        }
+        
+        @media screen and (max-width: 425px) {
+            .my-login-page .card-wrapper {
+                width: 90%;
+                margin: 0 auto;
+            }
+        }
+        
+        @media screen and (max-width: 320px) {
+            .my-login-page .card.fat {
+                padding: 0;
+            }
+        
+            .my-login-page .card.fat .card-body {
+                padding: 15px;
+            }
+        }
+    </style>
+{% endblock head %}
+
+{% block navbar %}
+{% endblock navbar %}
+
+{% block content %}
+<section class="h-100 mt-5">
+    <div class="container h-100">
+        <div class="row justify-content-md-center h-100">
+            <div class="card-wrapper">
+                <div class="card fat">
+                    <div class="card-body">
+                        <h4 class="card-title">{% trans "Вход" %}</h4>
+                        <form method="POST" class="my-login-validation" novalidate="">
+                            {% csrf_token %}
+                            {% if form.errors %}
+                                {% for error in form.non_field_errors %}
+                                    <div class="alert alert-danger">
+                                        <strong>{{ error|escape }}</strong>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                            <div class="form-group">
+                                <label for="username">{% trans "Логин" %}</label>
+                                <input id="username" type="text" class="form-control" name="username" value="" required autofocus>
+                                <div class="invalid-feedback">
+                                    {% trans "Необходим логин" %}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">{% trans "Пароль" %}
+                                </label>
+                                <input id="password" type="password" class="form-control" name="password" required data-eye>
+                                <div class="invalid-feedback">
+                                    {% trans "Необходим пароль" %}
+                                </div>
+                            </div>
+
+                            <div class="form-group m-0">
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    {% trans "Войти" %}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

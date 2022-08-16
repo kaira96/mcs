@@ -1,0 +1,5 @@
+SECRET_KEY='django-insecure-8+gd6yt8d9gqk0gmd72w-a4%v$uog!ud9(=j#w&u&-efw!3)1@'
+DATABASE_PASSWORD='v9d?Vh3Ak@88Jc5p'
+LOGGING_LEVEL='INFO'
+LOGGING_ROTATION_TIME='22:00'
+LOGGING_JSON_FILE_NAME='root.json'

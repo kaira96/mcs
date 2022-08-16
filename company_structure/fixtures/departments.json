@@ -1,0 +1,72 @@
+[
+    {
+        "model": "company_structure.Department",
+        "pk": 1,
+        "fields":
+        {
+            "start_date": "2022-01-01",
+            "name": "Отдел Микро-Финансирования",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.Department",
+        "pk": 2,
+        "fields":
+        {
+            "start_date": "2022-01-01",
+            "name": "Отдел Финансирования",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.Department",
+        "pk": 3,
+        "fields":
+        {
+            "start_date": "2022-01-01",
+            "name": "Правление",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.Department",
+        "pk": 4,
+        "fields":
+        {
+            "start_date": "2022-01-01",
+            "name": "Административное Хозяйственный Отдел",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.Department",
+        "pk": 5,
+        "fields":
+        {
+            "start_date": "2022-01-01",
+            "name": "Служба Безопасности",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.Department",
+        "pk": 6,
+        "fields":
+        {
+            "start_date": "2022-01-01",
+            "name": "Управление Персоналом",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.Department",
+        "pk": 7,
+        "fields":
+        {
+            "start_date": "2022-01-01",
+            "name": "Отдел Андерайтинга",
+            "updated_date": "2022-01-01"
+        }
+    }
+]

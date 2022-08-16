@@ -1,0 +1,612 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load mathfilters %}
+
+
+{% block title %}{% trans "Заявка на кредит" %}{% endblock title %}
+
+{% block head %}
+  <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+  <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">
+{% endblock head %}
+
+
+{% block content %}
+        <div class="container" style="margin-top: 5%;">
+          <div class="alert alert-primary" role="alert">
+            {{ info.text|safe }}
+          </div>
+          <div id="accordion">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <h4>{% trans "Вся информация о заявке" %} № {{ form.instance.id }}</h4>
+                  </button>
+                </h5>
+              </div>
+          
+              <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                  <form id="form-container" method="get" style="text-align: center;">
+                    <h1 class="mt-2">{% trans "Личные данные" %}</h1><hr>
+                    {% crispy client_passport_form %}
+                    {% crispy client_form %}
+                    <hr>
+                    <h1 class="mt-2">{% trans "Данные о ваших доходах" %}</h1><hr>
+                    {% crispy salary_form %}
+                    {% crispy job_form %}
+                    <hr>
+                    {% if dependent_form %}
+                    <h1 class="mt-2">{% trans "Сведение о иждивенцах" %}</h1><hr>
+                    {% crispy dependent_form %}
+                    {% endif %}
+                    {% if spouse_form %}
+                    <div class="spouse active-married-form" >
+                        <hr>
+                        <h1 class="mt-2">{% trans "Сведение о супруге" %}</h1>
+                        <hr>
+                          {% crispy spouse_passport_form %}
+                          {% crispy spouse_form %}
+                    </div>
+                    {% endif %}
+                    {% if guarantor_form %}
+                    <div class="guarantor active-guarantor-form" >
+                        <hr>
+                        <h1 class="mt-2">{% trans "Сведение о поручителе" %}</h1>
+                        <hr>
+                          {% crispy guarantor_passport_form %}
+                          {% crispy guarantor_form %}
+                    </div>
+                    {% endif %}
+                    <hr>
+                    <h1 class="mt-2">{% trans "Сведение о финанасировании" %}</h1><hr>
+                    {% crispy form %}
+                    <hr>
+                    <h1 class="mt-2">{% trans "Сведение о приобретаемом товаре" %}</h1>
+                    {% for product in product_details_form %}
+                        {% if product.initial.id %}
+                          <div class="product">
+                              {% crispy product %}
+                              <hr><br>
+                          </div>
+                        {% endif %}
+                    {% endfor %}
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <h4>{% trans "Социальный анализ заявки" %} № {{ form.instance.id }}</h4>
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseTwo" class="collapse {% if not social_analysis_form %}show{% endif %}" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                  {% if social_analysis_form %}
+                    KIB
+                    {{ form.instance.kib_analysis }}
+                    <hr>
+                    Tunduk
+                    {{ form.instance.tunduk_analysis }}
+                    <br>
+                    <form id="form-container" method="get" style="text-align: center;">
+                      <h1 class="mt-2">{% trans "Социальный анализ клиента" %}</h1><hr>
+                      {% crispy social_analysis_form %}
+                    </form>
+                  {% else %}
+                    <p>
+                      <h5>{% trans "На данный момент социальный анализ не был прведён, нажмите на кнопку ниже:" %}</h5>
+                    </p>
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      <div class="row justify-content-center">
+                        <a href="{% url 'loan-application-social-analysis' form.instance.id %}" class="btn btn-primary btn-rounded btn-sm sm-4 mt-2 mr-3" style='color: white;'>{% trans "Сделать анализ" %}</a>
+                      </div>
+                    </button>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <h4>{% trans "Заключение на заявку" %} № {{ form.instance.id }}</h4>
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseThree" class="collapse {% if social_analysis_form %}show{% endif %}" aria-labelledby="headingThree" data-parent="#accordion">
+                <div class="card-body">
+                  {% if social_analysis_form %}
+                    {% if form.instance.give_out_status != 'not_accept' %}
+                    <form id="form-container" method="get" style="text-align: center;">
+                      {% csrf_token %}
+                      <div class="row justify-content-center">
+                          <h1 class="mt-4">{% trans "Резюме для заключения" %}</h1>
+                        </div>
+                        <div class="row justify-content-center" style="margin-top: 30px;">
+                          <div class='col'>        
+                            <table class="table w-auto">
+                              <thead>
+                                <div class="row justify-content-center">
+                                  <h4 class="mt-4">{% trans "Данные о клиенте" %}</h4>
+                                </div>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                    <th scope="row">{% trans "ФИО" %}: </th>
+                                    <td>{{ form.instance.client }}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">{% trans "Адрес прописки" %}: </th>
+                                  <td>{{ form.instance.client.registration_address }}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">{% trans "Адрес проживания" %}: </th>
+                                  <td>{{ form.instance.client.residence_address }}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">{% trans "Документ удос-ий личность" %}: </th>
+                                  <td>{{ form.instance.client.passport.series_type }} {{ form.instance.client.passport.series }} от {{ form.instance.client.passport.date_of_issue }} MKK {{ object.client.passport.issued_it }}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">{% trans "Телефоны" %}: </th>
+                                  <td>{{ form.instance.client.phone_number }}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">{% trans "Место работы" %}: </th>
+                                  <td>{{ form.instance.client.job.first.name }}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">{% trans "Должность" %}: </th>
+                                  <td>{{ form.instance.client.job.first.position }}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">{% trans "Наименование орган./биз." %}: </th>
+                                  <td>{{ form.instance.client }}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">{% trans "Адрес бизнеса" %}: </th>
+                                  <td>{{ form.instance.client }}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">{% trans "Должность" %}: </th>
+                                  <td>{{ form.instance.client }}</td>
+                                  {{ form.instance.get_lang }}
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class='col'>
+                            <thead>
+                              <div class="row justify-content-center">
+                                <h4 class="mt-4">{% trans "Данные о финансировании" %}</h4>
+                              </div>
+                            </thead>
+                            <table class="table w-auto">
+                              <tbody>
+                                <tr>
+                                    <th scope="row">{% trans "Запрошенный срок" %}: </th>
+                                    <td>{{ form.instance.funding_period }}</td>
+                                    <td>{% trans "мес." %}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">{% trans "Сумма финансирования" %}: </th>
+                                  <td>{{ form.instance.funding_amount }}</td>
+                                  <td>{% trans "сом" %}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">{% trans "Наценка банка на товар" %}: </th>
+                                  <td>{{ form.instance.bank_surcharge }}</td>
+                                  <td>{% trans "сом" %}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">{% trans "Наценка банка на товар %" %}: </th>
+                                  <td>{{ form.instance.effect_percentage }}<td>%</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">{% trans "Первоначальный платёж" %}: </th>
+                                  <td>{{ form.instance.first_instalment }}</td>
+                                  <td>{% trans "сом" %}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">{% trans "Первоначальный платёж %" %}: </th>
+                                  <td>{{ form.instance.first_instalment_percentage  }}</td>
+                                  <td>{% trans "сом" %}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">{% trans "Ежемесячный платёж" %}: </th>
+                                  <td>{{ form.instance.monthly_payment }}</td>
+                                  <td>{% trans "сом" %}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">{% trans "Итого" %}: </th>
+                                  <td>{{ form.instance.total_cost_with_surcharge }}</td>
+                                  <td>{% trans "сом" %}</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        <div class="row justify-content-center" style="margin-top: 30px;">
+                          <div class='col'>      
+                            <table class="table">
+                              <thead>
+                                <div class="row justify-content-center">
+                                  <h4 class="mt-4">{% trans "Сведения о приобретаемом товаре" %}</h4>
+                                </div>
+                                <tr>
+                                  <th scope="col">№</th>
+                                  <th scope="col">{% trans "Описание товара" %}</th>
+                                  <th scope="col">{% trans "Итого стоимость товара" %}</th>
+                                  <th scope="col">{% trans "Торговая организация" %}</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {% for product in form.instance.product_buy.all %}
+                                <tr>
+                                  <th scope="row">{{ forloop.counter }}</th>
+                                  <td>{{ product.category }} {{ product.description }}</td>
+                                  <td>{{ product.price }}</td>
+                                  <td>{{ product.trade_partner }}</td>
+                                </tr>
+                                {% endfor %}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        <div class="row justify-content-center" style="margin-top: 30px;">
+                          <div class='col'>      
+                            <table class="table">
+                              <thead>
+                                <div class="row justify-content-center">
+                                  <h4 class="mt-4">{% trans "Расчёт платёжеспособности клиента (в сомах)" %}</h4>
+                                </div>
+                                <tr>
+                                  <th scope="col">{% trans "Наименование статьи" %}</th>
+                                  <th scope="col">{% trans "Показатели за месяц" %}</th>
+                                  <th scope="col">{% trans "Комментарии к статьям" %}</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <th scope="row">{% trans "Доходы клиента" %}</th>
+                                  <td id="client_income" >{{ form.instance.client.client_salary.first.salary }}</td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">{% trans "Доходы супруга/ги" %}</th>
+                                  <td id="client_spouse_income" >
+                                    {% if form.instance.client.spouse %}
+                                      {{ form.instance.client.spouse.salary }}
+                                    {% else %}
+                                      0
+                                    {% endif %}
+                                  </td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">{% trans "Все другие доходы" %}</th>
+                                  <td id="other_income" >0</td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><h5>{% trans "Итого доходы" %}</h5></th>
+                                  <td id="total_income" >0</td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                {% for spend in client_spend %}
+                                <tr>
+                                  <th scope="row">{{ spend.title }}</th>
+                                  <td name="spend" >{{ spend.per_month_amount }}</td>
+                                  <td>{{ spend.description }}</td>
+                                </tr>
+                                {% endfor %}
+                                <tr>
+                                  <th scope="row"><h5>{% trans "Итого расходы" %}</h5></th>
+                                  <td id="total_spends" >{% trans "Итого" %}</td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><h5>{% trans "Чистая прибыль (ЧП)" %}</h5></th>
+                                  <td id="net_income" >{% trans "Итого" %}</td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><h5>{% trans "Ежемесячный платёж" %}</h5></th>
+                                  <td id="monthly_payment" >{{ object.monthly_payment }}</td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><h5>{% trans "Чистый остаток денег/ЧП" %}</h5></th>
+                                  <td id="month_payment_to_net_income" >0 %</td>
+                                  <td>{% trans "Данный показатель не должен быть меньше 10 %" %}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row"><h5>{% trans "Соотношения платёж/доход" %}</h5></th>
+                                  <td id="month_payment_to_income" >0 %</td>
+                                  <td>{% trans "Данный показатель не должен быть больше 50 %" %}</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div><hr><br>
+                        <div class="row justify-content-center">
+                          <span><strong><h4>{% trans "Заключение" %}</strong></h4></span>
+                        </div>
+                        <div class="row justify-content-center">
+                          <div class="row">
+                            <p class="lead">
+                              Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+                            </p>
+                          </div>
+                        </div><hr><br>
+                    </form>
+                      <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          <h5><strong>{% trans "Решение кредитного сотрудника по данной заявке" %}</strong></h5>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          {% trans "Сотрудник" %}:&nbsp;&nbsp;&nbsp;&nbsp;{{ form.instance.employee.position }}
+                          <span class="badge badge-primary badge-pill">{{ form.instance.get_give_out_status_display }}</span>
+                        </li>
+                        {% if confirms or not_confirms %}
+                          <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <h5><strong>{% trans "Решение членов кредитного комитета по данной заявке" %}</strong></h5>
+                          </li>
+                          {% for confirm in confirms %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                              {% trans "Член комитета" %}:&nbsp;&nbsp;&nbsp;&nbsp;{{ confirm.employee }}
+                              <span class="badge badge-primary badge-pill">
+                                {% if confirm.is_confirm %}
+                                  {% trans "Да. Заявка одобрена без изменения условий." %}
+                                {% else %}
+                                  {% trans "Нет. Заявка отклонена." %}
+                                {% endif %}
+                              </span>
+                            </li>
+                          {% endfor %}
+                          {% for not_confirm in not_confirms %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                              {% trans "Член комитета" %}:&nbsp;&nbsp;&nbsp;&nbsp;{{ not_confirm.employee }}
+                              <span class="badge badge-primary badge-pill">{% trans "Не поставил акцепт" %}</span>
+                            </li>
+                          {% endfor %}
+                          <li class="list-group-item justify-content-between align-items-center">
+                            {% with total=not_confirms.count|add:confirms.count confirms_count=confirms.count %}
+                              {% with percent=confirms_count|mul:100|intdiv:total  %}
+                                <div class="progress" style="height: 10px;">
+                                  <div class="progress-bar" role="progressbar" style="width: {{ percent }}%;" aria-valuenow="{{ percent }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                              {% endwith %}
+                            {% endwith %}
+                          </li>
+                        {% endif %}
+                      </ul>
+                    {% else %}
+                      <p>
+                        <h5>{% trans "Нет заключения на данную заявку, нажмите на кнопку ниже:" %}</h5>
+                      </p>
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <div class="row justify-content-center">
+                          <a href="{% url 'loan-application-conclusion' form.instance.id %}" class="btn btn-primary btn-rounded btn-sm sm-4 mt-2 mr-3" style='color: white;'>{% trans "Сделать заключение" %}</a>
+                        </div>
+                      </button>
+                    {% endif %}
+                  {% else %}
+                    <p>
+                      <h5>{% trans "Сделайте социальный анализ клиента" %}</h5>
+                    </p>
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      <div class="row justify-content-center">
+                        <a href="{% url 'loan-application-social-analysis' form.instance.id %}" class="btn btn-primary btn-rounded btn-sm sm-4 mt-2 mr-3" style='color: white;'>{% trans "Сделать анализ" %}</a>
+                      </div>
+                    </button>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div><br>
+          {% if loan_application_confirm_form %}
+            <div class='row-justify-content-center'>
+              <li class="list-group-item d-flex justify-content-center align-items-center">
+                <h5><strong>{% trans "Ваше решение" %} {{ request.user }}</strong></h5>
+                <li class="list-group-item d-flex justify-content-center align-items-center">
+                  <form id="form-container" method="post" style="text-align: center;">
+                    {% csrf_token %}
+                    {% crispy loan_application_confirm_form %}<br><br>
+                    <div class="row justify-content-center">
+                      <a onclick="history.back()" class="btn btn-primary btn-rounded btn-md mb-4 mt-2 mr-3" style='color: white;'>{% trans "Назад" %}</a>
+                      <button type="submit" class="btn btn-primary btn-rounded btn-md mb-4 mt-2">{% trans 'Сохранить' %}</button>
+                    </div>
+                  </form>
+                </li>
+              </li>
+            </div>
+          {% else %}
+            {% if social_analysis_form %}
+              {% if form.instance.give_out_status != 'not_accept' %}
+                <div class='row-justify-content-center'>
+                  <li class="list-group-item d-flex justify-content-center align-items-center">
+                    <h5><strong>{% trans "Финальное заключение по данной заявке" %}</strong></h5>
+                  </li>
+                  {% if not_confirms.count == 0 %}
+                    <li class="list-group-item d-flex justify-content-center align-items-center">
+                      {% if loan_application_is_confirm %}
+
+                        {% if limit.limit >= form.instance.funding_amount %}
+                          <div class="alert alert-success" role="alert">
+                            {% trans "Заявка одобрена по решению сотрудника. " %} {{ form.instance.employee }} {% trans " Так как сумма финансирования менше лимита акцепта сотрудником." %}
+                          </div>
+                        {% else %}
+                          <div class="alert alert-success" role="alert">
+                            {% trans "Заявка одобрена по решению всех членов комитета." %}
+                          </div>
+                        {% endif %}
+                        
+                        {% if request.user == form.instance.employee and form.instance.is_accept and not_confirms.count == 0 and form.instance.is_registered == False %}
+                          <li class="list-group-item d-flex justify-content-center align-items-center">
+                            <div class="row justify-content-center">
+                              <a href="{% url 'create-loan' form.instance.pk %}" class="btn btn-primary btn-rounded btn-md mb-4 mt-2 mr-3" style='color: white;'>{% trans "Оформить кредит" %}</a>
+                            </div>
+                          </li>
+                        {% endif %}
+                      {% else %}
+                        <li class="list-group-item d-flex justify-content-center align-items-center">
+                          <div class="alert alert-danger" role="alert">
+                            {% trans "Отклонить заявку по итоговому решению кредитного комитета." %}
+                          </div>
+                        </li>
+                      {% endif %}
+                    </li>
+                  {% else %}
+                    {% if not_confirms %}
+                      <li class="list-group-item d-flex justify-content-center align-items-center">
+                        <div class="alert alert-primary" role="alert">
+                          {% trans "Не все члены комитета поставили акцепт. Осталось не принятых решений " %}{{ not_confirms.count }}{% trans " из " %}{{ not_confirms.count|add:confirms.count }}
+                        </div>
+                      </li>
+                    {% else %}
+                      <li class="list-group-item d-flex justify-content-center align-items-center">
+                        <div class="alert alert-danger" role="alert">
+                          {% trans "Отклонить заявку по итоговому решению кредитного сотрудника." %}
+                        </div>
+                      </li>
+                    {% endif %}
+                  {% endif %}
+                  <div class="row justify-content-center">
+                    <a onclick="history.back()" class="btn btn-primary btn-rounded btn-md mb-4 mt-2 mr-3" style='color: white;'>{% trans "Назад" %}</a>
+                  </div>
+                </div>
+              {% endif %}
+            {% endif %}
+          {% endif %}
+        </div><br><br>
+
+    <script>
+        window.console = window.console || function(t) {};
+    </script>
+    <script>
+        if (document.location.search.match(/type=embed/gi)) {
+            window.parent.postMessage("resize", "*");
+        }
+    </script>
+    <script>
+      function total_income() {
+        var client_income = parseFloat(document.getElementById("client_income").innerHTML.replace(',', '.'));
+        var client_spouse_income = parseFloat(document.getElementById("client_spouse_income").innerHTML.replace(',', '.'));
+        var other_income = parseFloat(document.getElementById("other_income").innerHTML.replace(',', '.'));
+  
+        var all_spends = document.getElementsByName("spend");
+  
+        var total_income = client_income + client_spouse_income + other_income;
+        var total_spend = 0;
+  
+        var monthly_payment = parseFloat(document.getElementById("monthly_payment").innerHTML.replace(',', '.'));
+  
+        all_spends.forEach((spend) => {
+          total_spend += parseFloat(spend.innerHTML.replace(',', '.'));
+        })
+  
+        var net_income = total_income - total_spend;
+        var month_payment_to_net_income = (monthly_payment / net_income) * 100;
+        var month_payment_to_income = (monthly_payment / total_income) * 100;
+        
+        document.getElementById("total_income").innerHTML = (total_income).toFixed(2).toString(32).replace('.', ',');
+        document.getElementById("total_spends").innerHTML = (total_spend).toFixed(2).toString(32).replace('.', ',');
+        document.getElementById("net_income").innerHTML = (net_income).toFixed(2).toString(32).replace('.', ',');
+        document.getElementById("month_payment_to_net_income").innerHTML = (month_payment_to_net_income).toFixed(2).toString(8).replace('.', ',') + ' %';
+        document.getElementById("month_payment_to_income").innerHTML = (month_payment_to_income).toFixed(2).toString(8).replace('.', ',') + ' %';
+      }
+      total_income();
+  
+      function get_lang() {
+        var userLang = navigator.language || navigator.userLanguage; 
+        var userLang = userLang.slice(0,2);
+        console.log(userLang);
+      }
+      get_lang();
+    </script>   
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"></script>
+    <script id="rendered-js">
+            // ---------Responsive-navbar-active-animation-----------
+            function test() {
+            var tabsNewAnim = $('#navbarSupportedContent');
+            var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
+            var activeItemNewAnim = tabsNewAnim.find('.active');
+            var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
+            var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
+            var itemPosNewAnimTop = activeItemNewAnim.position();
+            var itemPosNewAnimLeft = activeItemNewAnim.position();
+            $(".hori-selector").css({
+                "top": itemPosNewAnimTop.top + "px",
+                "left": itemPosNewAnimLeft.left + "px",
+                "height": activeWidthNewAnimHeight + "px",
+                "width": activeWidthNewAnimWidth + "px" });
+
+            $("#navbarSupportedContent").on("click", "li", function (e) {
+                $('#navbarSupportedContent ul li').removeClass("active");
+                $(this).addClass('active');
+                var activeWidthNewAnimHeight = $(this).innerHeight();
+                var activeWidthNewAnimWidth = $(this).innerWidth();
+                var itemPosNewAnimTop = $(this).position();
+                var itemPosNewAnimLeft = $(this).position();
+                $(".hori-selector").css({
+                "top": itemPosNewAnimTop.top + "px",
+                "left": itemPosNewAnimLeft.left + "px",
+                "height": activeWidthNewAnimHeight + "px",
+                "width": activeWidthNewAnimWidth + "px" });
+
+            });
+            }
+            $(document).ready(function () {
+            setTimeout(function () {test();});
+            });
+            $(window).on('resize', function () {
+            setTimeout(function () {test();}, 500);
+            });
+            $(".navbar-toggler").click(function () {
+            $(".navbar-collapse").slideToggle(300);
+            setTimeout(function () {test();});
+            });
+
+
+
+        // --------------add active class-on another-page move----------
+        jQuery(document).ready(function ($) {
+            // Get current path and find target link
+            var path = window.location.pathname.split("/").pop();
+
+            // Account for home page with empty path
+            if (path == '') {
+            path = 'my-profile.html';
+            }
+
+            var target = $('#navbarSupportedContent ul li a[href="' + path + '"]');
+            // Add active class to target link
+            target.parent().addClass('active');
+        });
+
+    </script>
+{% endblock content %}

@@ -1,0 +1,114 @@
+[    
+    {
+        "model": "client.ClientSpend",
+        "pk": 1,
+        "fields":
+        {
+            "title": "Товары первой необходимости",
+            "per_month_amount": 10000,
+            "description": "Продукты",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "client.ClientSpend",
+        "pk": 2,
+        "fields":
+        {
+            "title": "Коммунальные усслуги, тел.",
+            "per_month_amount": 3000,
+            "description": "",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "client.ClientSpend",
+        "pk": 3,
+        "fields":
+        {
+            "title": "Мобильная связь",
+            "per_month_amount": 500,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "client.ClientSpend",
+        "pk": 4,
+        "fields":
+        {
+            "title": "Расходы на автотранспорт",
+            "per_month_amount": 8000,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "client.ClientSpend",
+        "pk": 5,
+        "fields":
+        {
+            "title": "Аренда недвижимости",
+            "per_month_amount": 0,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "client.ClientSpend",
+        "pk": 6,
+        "fields":
+        {
+            "title": "Расходы на образование",
+            "per_month_amount": 0,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "client.ClientSpend",
+        "pk": 7,
+        "fields":
+        {
+            "title": "Отдых культурные мероприятия",
+            "per_month_amount": 0,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "client.ClientSpend",
+        "pk": 8,
+        "fields":
+        {
+            "title": "Платежи по другим кредитам",
+            "per_month_amount": 0,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "client.ClientSpend",
+        "pk": 9,
+        "fields":
+        {
+            "title": "Помощь другим родственикам",
+            "per_month_amount": 0,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "client.ClientSpend",
+        "pk": 10,
+        "fields":
+        {
+            "title": "Иные расходы",
+            "per_month_amount": 0,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    }
+]

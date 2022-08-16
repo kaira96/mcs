@@ -1,0 +1,35 @@
+.active-married-form {
+  display: block !important;
+}
+
+.spouse {
+  display: none;
+}
+
+.active-job-form {
+  display: block !important;
+}
+
+.client-job {
+  display: none;
+}
+
+.active-commercial-form {
+  display: block !important;
+}
+
+.client-commercial {
+  display: none;
+}
+
+
+section {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.select2-container--default {
+    max-width: 550px !important;
+    width: 100% !important;
+}
