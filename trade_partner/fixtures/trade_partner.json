@@ -1,0 +1,35 @@
+[
+    {
+        "model": "trade_partner.TradePartner",
+        "pk": 1,
+        "fields":
+        {
+            "name": "Kivano",
+            "bank_id_code": "11111111",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "trade_partner.TradePartner",
+        "pk": 2,
+        "fields":
+        {
+            "name": "O store",
+            "bank_id_code": "22222222",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "trade_partner.TradePartner",
+        "pk": 3,
+        "fields":
+        {
+            "name": "Svetofor",
+            "bank_id_code": "33333333",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    }
+]

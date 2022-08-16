@@ -1,0 +1,47 @@
+[
+    {
+        "model": "company_structure.OfficeBranch",
+        "pk": 1,
+        "fields":
+        {
+            "address": 1,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01",
+            "phone_number": "+996312432211",
+            "name": "Головной-офис",
+            "departments": [
+                1, 2, 3, 4, 5, 6, 7
+            ]
+        }
+    },
+    {
+        "model": "company_structure.OfficeBranch",
+        "pk": 2,
+        "fields":
+        {
+            "address": 4,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01",
+            "phone_number": "+996312432211",
+            "name": "Ошский филиал",
+            "departments": [
+                1, 2, 5
+            ]
+        }
+    },
+    {
+        "model": "company_structure.OfficeBranch",
+        "pk": 3,
+        "fields":
+        {
+            "address": 2,
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01",
+            "phone_number": "+996312432211",
+            "name": "филиал Манас",
+            "departments": [
+                1, 2, 5
+            ]
+        }
+    }
+]

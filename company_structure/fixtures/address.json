@@ -1,0 +1,50 @@
+[
+    {
+        "model": "company_structure.Address",
+        "pk": 1,
+        "fields":
+        {
+            "city": 1,
+            "region": 1,
+            "street": "ул. Абдрахманова 123",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.Address",
+        "pk": 2,
+        "fields":
+        {
+            "city": 1,
+            "region": 1,
+            "street": "ул. Манаса 321",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.Address",
+        "pk": 3,
+        "fields":
+        {
+            "city": 1,
+            "region": 1,
+            "street": "ул. Жибек-Жолу 34/1",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.Address",
+        "pk": 4,
+        "fields":
+        {
+            "city": 2,
+            "region": 2,
+            "street": "ул. Курманджан-Датка",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    }
+]

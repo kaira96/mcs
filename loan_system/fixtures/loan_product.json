@@ -1,0 +1,50 @@
+[
+    {
+        "model": "loan_system.LoanProduct",
+        "pk": 1,
+        "fields":
+        {
+            "start_date": "2022-01-01",
+            "percent": 0.22,
+            "name": "Ижара",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "loan_system.LoanProduct",
+        "pk": 2,
+        "fields":
+        {
+            "start_date": "2022-01-01",
+            "percent": 0.28,
+            "name": "Мурабаха",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "loan_system.LoanProduct",
+        "pk": 3,
+        "fields":
+        {
+            "start_date": "2022-01-01",
+            "percent": 0.24,
+            "name": "Выгодный",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "loan_system.LoanProduct",
+        "pk": 4,
+        "fields":
+        {
+            "start_date": "2022-01-01",
+            "percent": 0.16,
+            "name": "Супер выгодный",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    }
+]

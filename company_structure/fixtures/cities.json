@@ -1,0 +1,122 @@
+[
+    {
+        "model": "company_structure.City",
+        "pk": 1,
+        "fields":
+        {
+            "name": "Бишкек",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.City",
+        "pk": 2,
+        "fields":
+        {
+            "name": "Ош",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.City",
+        "pk": 3,
+        "fields":
+        {
+            "name": "Талас",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.City",
+        "pk": 4,
+        "fields":
+        {
+            "name": "Нарын",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.City",
+        "pk": 5,
+        "fields":
+        {
+            "name": "Джаллал-Абад",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.City",
+        "pk": 6,
+        "fields":
+        {
+            "name": "Баткен",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.City",
+        "pk": 7,
+        "fields":
+        {
+            "name": "Каракол",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.City",
+        "pk": 8,
+        "fields":
+        {
+            "name": "Чолпон-Ата",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.City",
+        "pk": 9,
+        "fields":
+        {
+            "name": "Токмок",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.City",
+        "pk": 10,
+        "fields":
+        {
+            "name": "Ат-Башы",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.City",
+        "pk": 11,
+        "fields":
+        {
+            "name": "Кара-Балта",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.City",
+        "pk": 12,
+        "fields":
+        {
+            "name": "Кара-Бура",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    }
+]

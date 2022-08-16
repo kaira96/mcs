@@ -1,0 +1,72 @@
+[
+    {
+        "model": "company_structure.Region",
+        "pk": 1,
+        "fields":
+        {
+            "name": "Чуйская область",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+        },
+        {
+        "model": "company_structure.Region",
+        "pk": 2,
+        "fields":
+        {
+            "name": "Ошская область",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+        },
+        {
+        "model": "company_structure.Region",
+        "pk": 3,
+        "fields":
+        {
+            "name": "Ыссык-Кульская область",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+        },
+        {
+        "model": "company_structure.Region",
+        "pk": 4,
+        "fields":
+        {
+            "name": "Джалал-Абадская область",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+        },
+        {
+        "model": "company_structure.Region",
+        "pk": 5,
+        "fields":
+        {
+            "name": "Нарынская область",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+        },
+        {
+        "model": "company_structure.Region",
+        "pk": 6,
+        "fields":
+        {
+            "name": "Баткенская область",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+        },
+        {
+        "model": "company_structure.Region",
+        "pk": 7,
+        "fields":
+        {
+            "name": "Талаская область",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    }
+]

@@ -1,0 +1,112 @@
+[
+    {
+        "model": "company_structure.Holiday",
+        "pk": 1,
+        "fields":
+        {
+            "name": "Новый год",
+            "date": "2022-01-01",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.Holiday",
+        "pk": 2,
+        "fields":
+        {
+            "name": "Рождество",
+            "date": "2022-01-07",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.Holiday",
+        "pk": 3,
+        "fields":
+        {
+            "name": "День защитника отечества",
+            "date": "2022-02-23",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.Holiday",
+        "pk": 4,
+        "fields":
+        {
+            "name": "Международный женский день",
+            "date": "2022-03-08",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.Holiday",
+        "pk": 5,
+        "fields":
+        {
+            "name": "Нооруз",
+            "date": "2022-03-21",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.Holiday",
+        "pk": 6,
+        "fields":
+        {
+            "name": "День апрельской революции",
+            "date": "2022-04-07",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.Holiday",
+        "pk": 7,
+        "fields":
+        {
+            "name": "Международный день трудящихся",
+            "date": "2022-05-01",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.Holiday",
+        "pk": 8,
+        "fields":
+        {
+            "name": "День конституции",
+            "date": "2022-05-05",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.Holiday",
+        "pk": 9,
+        "fields":
+        {
+            "name": "День победы",
+            "date": "2022-05-09",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    },
+    {
+        "model": "company_structure.Holiday",
+        "pk": 10,
+        "fields":
+        {
+            "name": "День независимости",
+            "date": "2022-08-31",
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01"
+        }
+    }
+]

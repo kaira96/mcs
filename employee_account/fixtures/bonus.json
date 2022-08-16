@@ -1,0 +1,50 @@
+[
+    {
+        "model": "employee_account.Bonus",
+        "pk": 1,
+        "fields":
+        {
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01",
+            "bonus_amount": 20,
+            "min_credit_quantity": 5,
+            "position_id": 2
+        }
+    },
+    {
+        "model": "employee_account.Bonus",
+        "pk": 2,
+        "fields":
+        {
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01",
+            "bonus_amount": 40,
+            "min_credit_quantity": 10,
+            "position_id": 1
+        }
+    },
+    {
+        "model": "employee_account.Bonus",
+        "pk": 3,
+        "fields":
+        {
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01",
+            "bonus_amount": 30,
+            "min_credit_quantity": 10,
+            "position_id": 3
+        }
+    },
+    {
+        "model": "employee_account.Bonus",
+        "pk": 4,
+        "fields":
+        {
+            "created_date": "2022-01-01",
+            "updated_date": "2022-01-01",
+            "bonus_amount": 60,
+            "min_credit_quantity": 20,
+            "position_id": 4
+        }
+    }
+]
